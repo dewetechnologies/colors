@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Register - MindUWC{% endblock %}
+
+{% block content %}
+        <header class="header">
+            <a href="{{ url_for('index') }}" class="logo" style="text-decoration: none;">✔️ MindUWC</a>
+        </header>
+
+        <main class="timer-block">
+            <h2>Create Account</h2>
+            {% if error %}
+                <p style="color: #d9534f; font-weight: bold;">{{ error }}</p>
+            {% endif %}
+            <form method="POST" action="{{ url_for('register') }}">
+                <div class="form-group" style="text-align: left; margin-bottom: 15px;">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="task-input" style="background: #eee; padding: 10px; border-radius: 4px; color: #333;" required>
+                </div>
+                <div class="form-group" style="text-align: left; margin-bottom: 20px;">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="task-input" style="background: #eee; padding: 10px; border-radius: 4px; color: #333;" required>
+                </div>
+                <button type="submit" class="start-button" style="width: 100%;">Register</button>
+            </form>
+        </main>
+{% endblock %}
